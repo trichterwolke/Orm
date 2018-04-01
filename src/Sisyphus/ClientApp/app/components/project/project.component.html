@@ -1,0 +1,28 @@
+<h1>Projekte</h1>
+
+<p>Projektverwaltung</p>
+
+<p *ngIf="!projects"><em>Loading...</em></p>
+
+
+<select [(ngModel)]="selectedCustomer">
+    <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
+</select>
+
+
+<table class='table' *ngIf="projects">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Project</th>
+            <th>Customer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects">
+            <td>{{ project.id }}</td>
+            <td>{{ project.name }}</td>
+            <td>{{ project.customer.name }}</td>
+        </tr>
+    </tbody>
+</table>
